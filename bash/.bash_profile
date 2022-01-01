@@ -1,5 +1,44 @@
-export EDITOR=nvim
-export VISUAL=nvim
+# add uawe scripts
+export PATH="$HOME/bin:$PATH"
+
+# use a sane default blocksize of 1kb instead of the default 512 for commands like df, du, etc.
+export BLOCKSIZE=1k
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+export HISTCONTROL=ignoredups:ignorespace
+# make sure again to drop lines starting with a space
+export HISTIGNORE="[ ]*"
+
+# history size in memory
+export HISTSIZE=20000
+
+# history size on disk
+# export HISTFILESIZE=200000
+export HISTFILESIZE=-1 # no limit
+
+
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="de_CH.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_MONETARY="de_CH.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_PAPER="de_CH.UTF-8"
+export LC_NAME="en_US.UTF-8"
+export LC_ADDRESS="de_CH.UTF-8"
+export LC_TELEPHONE="de_CH.UTF-8"
+export LC_MEASUREMENT="de_CH.UTF-8"
+export LC_IDENTIFICATION="de_CH.UTF-8"
+
+
+if which nvim 2>&1 > /dev/null; then
+  export EDITOR=`which nvim`
+  export VISUAL=`which nvim`
+fi
 
 export LESS='-RiF --mouse --wheel-lines=3'
 
