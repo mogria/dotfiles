@@ -5,3 +5,8 @@ tmux
 git
 openssh
 stow
+ripgrep
+fd
+util-linux
+clang
+man
