@@ -18,6 +18,7 @@ export HISTSIZE=20000
 export HISTFILESIZE=-1 # no limit
 
 
+# Locale settings
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -35,18 +36,21 @@ export LC_MEASUREMENT="de_CH.UTF-8"
 export LC_IDENTIFICATION="de_CH.UTF-8"
 
 
-if which nvim 2>&1 > /dev/null; then
-  export EDITOR=`which nvim`
-  export VISUAL=`which nvim`
+# editor settings
+if command -v nvim 2>&1 > /dev/null; then
+  export EDITOR=`command -v nvim`
+  export VISUAL=`command -v nvim`
 fi
 
+alias vim='nvim'
+alias vi='nvim'
+
+# less configuration
 export LESS='-RiF --mouse --wheel-lines=3'
 
+# git aliases
 alias gc='git commit'
 alias gdc='git diff --cached'
 alias gp='git push'
 alias gs='git status'
 alias ga='git add'
-
-alias vim='nvim'
-alias vi='nvim'
