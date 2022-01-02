@@ -17,3 +17,4 @@ fi
   make install INSDIR="$install_dir"
 )
 
+#TODO: install bash-it into ~/.bash_it/
