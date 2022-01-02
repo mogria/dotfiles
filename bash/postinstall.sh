@@ -10,10 +10,10 @@ if [ -f "$install_dir/ble.sh" ]; then
 fi
 
 ( cd "$TMPDIR";
-  test -f "ble.sh/ble.sh" && \
+  test -f "ble.sh/ble.sh" || \
     git clone --recursive https://github.com/akinomyoga/ble.sh.git
   cd ble.sh
-  git checkout v0.3.3
+  git checkout v0.4.0-devel2
   make install INSDIR="$install_dir"
 )
 
