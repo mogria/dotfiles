@@ -47,5 +47,12 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-test -f ~/.local/share/ble.sh/ble.sh && 
-source ~/.local/share/ble.sh/ble.sh
+
+# load ble.sh, improved line-editor to replace readline
+blesh_path="$HOME/.local/share/blesh/ble.sh"
+[[ $- == *i* ]] && # only needs to be loaded in interactive mode
+    test -f "$blesh_path" && # check if installed
+    source "$blesh_path" --noattach
+
+# attach thw ble.sh line editor
+[[ ${BLE_VERSION-} ]] && ble-attach
