@@ -46,3 +46,6 @@ fi
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+test -f ~/.local/share/ble.sh/ble.sh && 
+source ~/.local/share/ble.sh/ble.sh

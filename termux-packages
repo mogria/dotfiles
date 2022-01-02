@@ -10,3 +10,5 @@ fd
 util-linux
 clang
 man
+make
+gawk
