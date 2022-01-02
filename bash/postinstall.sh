@@ -1,7 +1,7 @@
 #!/bin/sh
 
-set -eux
-install_dir="$HOME/.local/share/ble.sh"
+set -eu
+install_dir="$HOME/.local/share/blesh"
 
 
 if [ -f "$install_dir/ble.sh" ]; then
@@ -10,8 +10,8 @@ if [ -f "$install_dir/ble.sh" ]; then
 fi
 
 ( cd "$TMPDIR";
-  test -d "ble.sh" && exit 0
-  git clone --recursive https://github.com/akinomyoga/ble.sh.git
+  test -f "ble.sh/ble.sh" && \
+    git clone --recursive https://github.com/akinomyoga/ble.sh.git
   cd ble.sh
   git checkout v0.3.3
   make install INSDIR="$install_dir"
