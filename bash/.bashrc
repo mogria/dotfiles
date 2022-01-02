@@ -14,7 +14,7 @@ esac
 stty -ixon
 
 # use the vi keymap
-setopt vi
+set -o vi
 
 if [ -e "$HOME/.bash_profile" ]; then
     source "$HOME/.bash_profile"
