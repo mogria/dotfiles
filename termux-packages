@@ -12,3 +12,4 @@ clang
 man
 make
 gawk
+bash-completion
