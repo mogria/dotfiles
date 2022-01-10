@@ -249,7 +249,7 @@ noremap <F8> :Unlink<C-R>
 " TAGS GENERAL {{{
 "" set tags+=./,, is relative to the current directory, not the current file
 set cpoptions+=d
-set tags +=./,,vimtags,~/tags
+set tags +=./,,vimtags,~/.cache/nvim/tags
 set tagcase=followscs
 " show more information about a tag when completing
 set showfulltag
