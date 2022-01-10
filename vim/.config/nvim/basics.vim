@@ -168,8 +168,13 @@ if filewritable(expand('$XDG_CONFIG_HOME').'/nvim')
   " have dictionary fixes into config dir to be able to commit it via git
   set spellfile=$XDG_CONFIG_HOME/nvim/spell/dictionary-fixes.utf-8.add
 else
-  " but in the case of home-manger/nix this directory is not writable
-  set spellfile=$XDG_DATA_HOME/nvim/spell/dictionary-fixes.utf-8.add
+  if filewritable(expand('$HOME').'/.dotfiles/nvim/spell')
+    " have the .dotfiles repo in place
+    set spellfile=~/.dotfiles/nvim/spell/dictionary-fixes.utf-8.add
+  else
+    " but in the case of home-manger/nix this directory is not writable
+    set spellfile=$XDG_DATA_HOME/nvim/spell/dictionary-fixes.utf-8.add
+  endif
 endif
 
 let g:spell_clean_limit = 60 * 60
