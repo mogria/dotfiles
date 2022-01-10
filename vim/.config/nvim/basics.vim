@@ -153,14 +153,27 @@ set incsearch " move cursor while typing search
 " note: this can be disabled by using \c in the search pattern
 set ignorecase
 set smartcase
-"because incsearch is set you can use CTRL-/ while searching to find the next match
+"because incsearch is set you can use CTRL-/ while searching to find the next match,
 cmap <C-_> <C-G>
 " }}}
 
 " SPELLING OPTIONS {{{
+lang en_US.utf8
 set spell
-set spelllang=en,de
-set spellsuggest=best
+set spelllang=en_us,de_ch,de,en,fr
+" maybe fast is required here because of the dictionaries
+set spellsuggest=double,30,file:$XDG_CONFIG_HOME/.config/nvim/bad2good.txt
+
+if filewritable(expand('$XDG_CONFIG_HOME').'/nvim')
+  " have dictionary fixes into config dir to be able to commit it via git
+  set spellfile=$XDG_CONFIG_HOME/nvim/spell/dictionary-fixes.utf-8.add
+else
+  " but in the case of home-manger/nix this directory is not writable
+  set spellfile=$XDG_DATA_HOME/nvim/spell/dictionary-fixes.utf-8.add
+endif
+
+let g:spell_clean_limit = 60 * 60
+runtime spell/cleanadd.vim
 
 nnoremap <Leader>U gUiw
 nnoremap <Leader>u viwbUl
