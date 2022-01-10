@@ -240,7 +240,7 @@ set listchars+=precedes:«,extends:»
 " have ranger mappings
 noremap <F2> :Move <C-R>%
 noremap <F5> :e<CR>
-noremap <F7> :Mkdir 
+noremap <F7> :Mkdir<Space>
 noremap <F8> :Unlink<C-R>
 " }}}
 
