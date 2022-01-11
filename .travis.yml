@@ -1,0 +1,42 @@
+language: generic
+# language: generic
+os: linux
+dist: focal
+arch:
+- amd64
+- arm64
+branches:
+  only:
+  - master
+  except:
+  - develop
+env:
+- SECRET: "value"
+compiler:
+- gcc
+- clang
+
+before_cache:
+  - apt install stow nix
+
+stages:
+- name: unit tests
+  if: branch = master
+
+jobs:
+  include:
+  - language: nix
+    script:
+    - nix-build -f package.nix
+  - language: shell
+    script:
+    - ./setup.sh
+  # exclude:
+  # - language: ruby
+  #   os: linux
+  #   dist: trusty
+  # allow_failures:
+  # - language: ruby
+  #   os: linux
+  #   dist: trusty
+
