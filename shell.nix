@@ -17,5 +17,6 @@ with pkgs;
 mkShell {
   buildInputs = [
     # put packages here.
+    travis
   ];
 }
