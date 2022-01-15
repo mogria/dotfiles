@@ -1,1 +1,5 @@
 pack/
+
+# binary files for used spellchecking
+spell/*.spl
+spell/*.sug

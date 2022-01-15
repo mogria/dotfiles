@@ -2,14 +2,29 @@
 
 Dotfiles are user specific configuration files for programs.
 
+## Setup
 
-## Install
+Run the following commands to use some of the configuration files in this Repository.
 
     git clone git@github.com:mogria/dotfiles.git ~/.dotfiles
     cd ~/.dotfiles
     stow bash
 
-Then use `stow` to manage symlinks.
+Then use [`stow`](https://www.gnu.org/software/stow/) (which you'll need to install separately) to manage symlinks.
+Note options defined in the `.stowrc` in the top of this repository,
+it contains the default options passed to stow, and you might consider
+amending or adjusting them to your needs.
+
+You can also stow the complete set of default packages by running the setup script
+
+    ~/.dotfiles$ ./setup.sh
+
+You might want to adjust the set of packages automatically stowed at the start of the `setup.sh`.
+
+    PACKAGES="vim tmux bash"
+
+Note, some packages have `postinstall.sh` script which the `setup.sh` will run,
+if all packages could be correctly stowed.
 
 ### vim
 

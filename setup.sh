@@ -1,16 +1,15 @@
 #!/bin/sh
+set -e -u
 
 PACKAGES="vim tmux bash"
 
 dotfiles_repo=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
 
-echo $dotfiles_repo
-stow --stow -d "$dotfiles_repo" --ignore postinstall.sh -t "$HOME" $PACKAGES || \
+stow --stow -d "$dotfiles_repo" $PACKAGES || \
     (
       echo "Could not stow packages correctly"
       exit 1
     )
-
 
 for p in $PACKAGES; do
     postinstall="$dotfiles_repo/$p/postinstall.sh"
