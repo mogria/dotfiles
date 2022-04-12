@@ -9,6 +9,10 @@ if [ -f "$install_dir/ble.sh" ]; then
   exit 0
 fi
 
+if [ -z "${TMPDIR:-}" ]; then
+  TMPDIR="`mktemp -d`"
+fi
+
 ( cd "$TMPDIR";
   test -f "ble.sh/ble.sh" || \
     git clone --recursive https://github.com/akinomyoga/ble.sh.git
