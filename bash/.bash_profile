@@ -42,23 +42,13 @@ if command -v nvim 2>&1 > /dev/null; then
   export VISUAL=`command -v nvim`
 fi
 
-alias vim='nvim'
-alias vi='nvim'
-
 # less configuration
 export LESS='-RiF --mouse --wheel-lines=3'
 
-# git aliases
-alias gc='git commit'
-alias gdc='git diff --cached'
-alias gp='git push'
-alias gs='git status'
-alias ga='git add'
-
-# setup user environment variables, because termux doesn't do so 
+# setup user environment variables, because termux doesn't do so
 export USER="`id -un`"
 export GROUP="`id -gn`"
-# These two are readonly variables: 
+# These two are readonly variables:
 # export UID="`id -ur`"
 # export EUID="`id -u`"
 export GID="`id -gr`"
